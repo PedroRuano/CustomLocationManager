@@ -6,7 +6,7 @@ public class LocationManager {
     
     private var locationManager: CLLocationManager
     private var delegate = LocationManagerDelegate()
-    let currentLocation: PassthroughSubject<CLLocation, Never>
+    public let currentLocation: PassthroughSubject<CLLocation, Never>
     
     init() {
         locationManager = CLLocationManager()
@@ -16,7 +16,7 @@ public class LocationManager {
         currentLocation = delegate.lastLocation
     }
     
-    func permissionRequest () {
+    public func permissionRequest () {
         locationManager.requestWhenInUseAuthorization()
     }
 }
