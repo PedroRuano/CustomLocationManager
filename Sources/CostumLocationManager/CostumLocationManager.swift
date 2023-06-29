@@ -8,7 +8,7 @@ public class LocationManager {
     private var delegate = LocationManagerDelegate()
     public let currentLocation: PassthroughSubject<CLLocation, Never>
     
-    init() {
+    public init() {
         locationManager = CLLocationManager()
         locationManager.delegate = delegate
         locationManager.allowsBackgroundLocationUpdates = true
