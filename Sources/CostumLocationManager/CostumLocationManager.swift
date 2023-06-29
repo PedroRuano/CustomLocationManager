@@ -2,7 +2,6 @@ import Foundation
 import CoreLocation
 import Combine
 
-@available(macOS 10.15, *)
 public class LocationManager {
     
     private var locationManager: CLLocationManager
@@ -13,7 +12,7 @@ public class LocationManager {
         locationManager = CLLocationManager()
         locationManager.delegate = delegate
         locationManager.allowsBackgroundLocationUpdates = true
-//        locationManager.showsBackgroundLocationIndicator = true
+        locationManager.showsBackgroundLocationIndicator = true
         currentLocation = delegate.lastLocation
     }
     
@@ -22,7 +21,6 @@ public class LocationManager {
     }
 }
 
-@available(macOS 10.15, *)
 private class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
     let lastLocation = PassthroughSubject<CLLocation, Never> ()
     
@@ -53,7 +51,6 @@ private class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    @available(macOS 11.0, *)
     fileprivate func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .restricted:
