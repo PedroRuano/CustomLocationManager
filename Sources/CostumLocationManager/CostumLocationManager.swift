@@ -16,13 +16,13 @@ public class LocationManager {
         currentLocation = delegate.lastLocation
     }
     
-    public func permissionRequest () {
+    public func permissionRequest() {
         locationManager.requestWhenInUseAuthorization()
     }
 }
 
 private class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
-    let lastLocation = PassthroughSubject<CLLocation, Never> ()
+    public var lastLocation = PassthroughSubject<CLLocation, Never> ()
     
     fileprivate func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
