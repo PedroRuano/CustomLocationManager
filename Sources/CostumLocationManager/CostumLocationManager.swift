@@ -19,6 +19,14 @@ public class LocationManager {
     public func permissionRequest() {
         locationManager.requestWhenInUseAuthorization()
     }
+    
+    public func startUpdatingLocation() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    public func stopUpdatingLocation() {
+        locationManager.stopUpdatingLocation()
+    }
 }
 
 private class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
@@ -31,8 +39,6 @@ private class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
     }
     
     fileprivate func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        manager.stopUpdatingLocation()
-        
         if let clErr = error as? CLError {
             switch clErr.code {
             case .locationUnknown, .denied, .network:
