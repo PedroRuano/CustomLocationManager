@@ -13,7 +13,7 @@ public class LocationManager {
         locationManager.delegate = delegate
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.showsBackgroundLocationIndicator = true
-        startUpdatingLocation()
+        locationManager.startUpdatingLocation()
         currentLocation = delegate.lastLocation
     }
     
