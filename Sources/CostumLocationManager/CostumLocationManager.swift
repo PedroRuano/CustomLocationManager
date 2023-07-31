@@ -6,14 +6,13 @@ public class LocationManager {
     
     private var locationManager: CLLocationManager
     private var delegate = LocationManagerDelegate()
-    public let currentLocation: PassthroughSubject<CLLocation, Never>
+    public let currentLocation: CurrentValueSubject<CLLocation, Never>
     
     public init() {
         locationManager = CLLocationManager()
         locationManager.delegate = delegate
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.showsBackgroundLocationIndicator = true
-        locationManager.startUpdatingLocation()
         currentLocation = delegate.lastLocation
     }
     
@@ -31,7 +30,7 @@ public class LocationManager {
 }
 
 private class LocationManagerDelegate: NSObject, CLLocationManagerDelegate {
-    public var lastLocation = PassthroughSubject<CLLocation, Never> ()
+    public var lastLocation = CurrentValueSubject<CLLocation, Never> (CLLocation(latitude: 0, longitude: 0))
     
     fileprivate func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
