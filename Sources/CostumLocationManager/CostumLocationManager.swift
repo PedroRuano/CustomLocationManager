@@ -10,10 +10,10 @@ public class LocationManager {
     
     public init() {
         locationManager = CLLocationManager()
-        startUpdatingLocation()
         locationManager.delegate = delegate
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.showsBackgroundLocationIndicator = true
+        startUpdatingLocation()
         currentLocation = delegate.lastLocation
     }
     
