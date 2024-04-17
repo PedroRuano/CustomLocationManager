@@ -1,12 +1,12 @@
-# CostumLocationManager
+# CustomLocationManager
 
-CostumLocationManager attempts to provide a easier way to use CoreLocation functions
+CustomLocationManager attempts to provide a easier way to use CoreLocation functions
 
 # Usage
 
 ## Import
 ```
-import CostumLocationManager
+import CustomLocationManager
 ```
 ## Instancing
 ```
